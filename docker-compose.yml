@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    container_name: "hyperf-example-app"
+    image: hyperf/hyperf:8.1-alpine-v3.15-swoole
+    working_dir: /app
+    tty: true
+    volumes:
+      - '.:/app'
+    networks:
+      - web
+    ports:
+      - "9501:9501"
+networks:
+  web:
+    driver: bridge

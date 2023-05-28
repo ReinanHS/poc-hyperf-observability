@@ -126,6 +126,7 @@ Com o Grafana, os usuários podem conectar uma variedade de fontes de dados, com
 
 - Acesse a URL [http://localhost:3000](http://localhost:3000) para ter acesso de informações que estão disponíveis no Grafana.
 - Utilize o usuário `admin` e a senha `secret` para acessar as informações. 
+- Na dashboard substitua o valor da variável `app_name` por `otel_poc_hyperf_observability`
 
 Veja um exemplo das informações que estão disponíveis nesse serviço:
 

@@ -110,7 +110,7 @@ Ele foi projetado para trabalhar em conjunto com o conceito de "rastreamento de 
 
 - Acesse a URL [http://localhost:16686](http://localhost:16686) para ter acesso de informações que estão disponíveis no Jaeguer.
 
-#### Promotheus
+#### Prometheus
 
 O Prometheus é um sistema de monitoramento e alerta de código aberto, amplamente utilizado para coletar, armazenar e consultar métricas de sistemas distribuídos.
 
@@ -142,7 +142,7 @@ Esse projeto roda nos seguintes softwares:
 - Hyperf
 - ZipKin
 - Jaeger
-- Promotheus
+- Prometheus
 - Grafana
 - MySQL
 - Redis

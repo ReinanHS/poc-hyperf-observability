@@ -72,6 +72,12 @@ curl http://localhost:9501/database -v
 curl http://localhost:9501/exception -v
 ```
 
+5. Execute o comando abaixo para realizar um teste de carga:
+
+```shell
+docker compose run k6 run /scripts/main.js
+```
+
 ### Visualizar informações
 
 Veja as etapas necessárias para conseguir visualizar as informações geradas.

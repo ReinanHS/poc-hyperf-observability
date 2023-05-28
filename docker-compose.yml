@@ -105,4 +105,12 @@ services:
     networks:
       - back-tier
     restart: always
-
+  k6:
+    container_name: 'k6-app'
+    image: grafana/k6:latest
+    networks:
+      - back-tier
+    volumes:
+      - ./test/K6:/scripts
+    depends_on:
+      - app

@@ -124,7 +124,7 @@ O Grafana é uma plataforma de visualização e monitoramento de código aberto 
 
 Com o Grafana, os usuários podem conectar uma variedade de fontes de dados, como Prometheus, InfluxDB, Elasticsearch e muitos outros, para coletar dados e criar visualizações personalizadas. Ele oferece uma ampla gama de opções de painéis e gráficos, permitindo que os usuários criem dashboards informativos e interativos para monitorar o desempenho e a saúde de sistemas, aplicativos e infraestrutura.
 
-- Acesse a URL [http://localhost:9090](http://localhost:9090) para ter acesso de informações que estão disponíveis no Grafana.
+- Acesse a URL [http://localhost:3000](http://localhost:3000) para ter acesso de informações que estão disponíveis no Grafana.
 - Utilize o usuário `admin` e a senha `secret` para acessar as informações. 
 
 Veja um exemplo das informações que estão disponíveis nesse serviço:

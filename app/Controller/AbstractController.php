@@ -14,10 +14,16 @@ namespace App\Controller;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
+use Hyperf\Tracer\SpanStarter;
+use OpenTracing\Tracer;
 use Psr\Container\ContainerInterface;
 
 abstract class AbstractController
 {
+    use SpanStarter;
+
+    public const HTTP_CODE_SUCCESS = 200;
+
     #[Inject]
     protected ContainerInterface $container;
 
@@ -26,4 +32,7 @@ abstract class AbstractController
 
     #[Inject]
     protected ResponseInterface $response;
+
+    #[Inject]
+    protected Tracer $tracer;
 }

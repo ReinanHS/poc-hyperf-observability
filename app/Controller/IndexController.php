@@ -1,26 +1,36 @@
 <?php
 
 declare(strict_types=1);
-/**
- * This file is part of Hyperf.
- *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
- */
+
 namespace App\Controller;
+
+use Psr\Http\Message\ResponseInterface;
 
 class IndexController extends AbstractController
 {
-    public function index()
+    /**
+     * Method responsible for exemplifying the creation of a span manually
+     * @return ResponseInterface
+     */
+    public function __invoke(): ResponseInterface
     {
+        $span = $this->startSpan('sample span');
+
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
 
-        return [
-            'method' => $method,
-            'message' => "Hello {$user}.",
-        ];
+        $span->finish();
+        $this->response->getBody()->write(
+            json_encode([
+                'message' => 'Sample message',
+                'data' => [
+                    'method' => $method,
+                    'message' => "Hello {$user}.",
+                ]
+            ])
+        );
+
+        return $this->response->withStatus(self::HTTP_CODE_SUCCESS)
+            ->withHeader('Content-Type', 'application/json');
     }
 }

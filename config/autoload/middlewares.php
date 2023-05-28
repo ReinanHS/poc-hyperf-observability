@@ -11,5 +11,7 @@ declare(strict_types=1);
  */
 return [
     'http' => [
+        \Hyperf\Tracer\Middleware\TraceMiddleware::class,
+        \Hyperf\Metric\Middleware\MetricMiddleware::class,
     ],
 ];

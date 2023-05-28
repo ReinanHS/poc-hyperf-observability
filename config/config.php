@@ -20,12 +20,12 @@ return [
         'log_level' => [
             LogLevel::ALERT,
             LogLevel::CRITICAL,
-            LogLevel::DEBUG,
             LogLevel::EMERGENCY,
             LogLevel::ERROR,
-            LogLevel::INFO,
-            LogLevel::NOTICE,
             LogLevel::WARNING,
+            LogLevel::NOTICE,
+            LogLevel::INFO,
+            LogLevel::DEBUG,
         ],
     ],
 ];

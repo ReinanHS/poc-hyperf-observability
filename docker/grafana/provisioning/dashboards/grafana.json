@@ -12,7 +12,7 @@
       "name": "VAR_APP_NAME",
       "type": "constant",
       "label": "app_name",
-      "value": "poc_hyperf_observability",
+      "value": "otel_poc_hyperf_observability",
       "description": ""
     }
   ],

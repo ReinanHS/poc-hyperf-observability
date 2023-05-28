@@ -41,8 +41,6 @@ services:
       APP_NAME: 'poc-hyperf-observability'
       # Trace
       ZIPKIN_ENDPOINT_URL: 'http://collector:9412/api/v2/spans'
-      # Metric
-      PROMETHEUS_SCRAPE_HOST: 'prometheus'
       # Redis
       REDIS_HOST: 'redis'
       # Database
@@ -71,6 +69,12 @@ services:
       - back-tier
     ports:
       - '9411:9411'
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    networks:
+      - back-tier
+    ports:
+      - "16686:16686"
   prometheus:
     image: prom/prometheus:v2.36.2
     volumes:

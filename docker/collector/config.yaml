@@ -1,13 +1,35 @@
 receivers:
   zipkin:
     endpoint: :9412
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'otel-hyperf-metrics'
+          metrics_path: '/metrics'
+          scrape_interval: 5s
+          static_configs:
+            - targets: [ 'app:9502' ]
 
 exporters:
   zipkin:
     endpoint: "http://zipkin:9411/api/v2/spans"
+  jaeger:
+    endpoint: jaeger:14250
+    tls:
+      insecure: true
+  prometheus:
+    endpoint: '0.0.0.0:9502'
+    namespace: otel
+    send_timestamps: true
+    metric_expiration: 180m
+    resource_to_telemetry_conversion:
+      enabled: false
 
 service:
   pipelines:
     traces:
       receivers: [zipkin]
-      exporters: [zipkin]
+      exporters: [zipkin, jaeger]
+    metrics:
+      receivers: [ prometheus ]
+      exporters: [ prometheus ]

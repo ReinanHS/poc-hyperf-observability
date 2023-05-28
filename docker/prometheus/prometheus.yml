@@ -9,4 +9,4 @@ scrape_configs:
     metrics_path: '/metrics'
     scrape_interval: 5s
     static_configs:
-      - targets: ['app:9502']
+      - targets: ['collector:9502']

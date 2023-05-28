@@ -1,5 +1,5 @@
 <div align="center">
-   <img src=".github/content/observability-hyperf.png" alt="logo" width="20%">
+   <img src=".github/content/observability-hyperf.png" alt="logo" width="80%">
 </div>
 
 POC Hyperf Observability
@@ -76,6 +76,57 @@ curl http://localhost:9501/exception -v
 
 Veja as etapas necessárias para conseguir visualizar as informações geradas.
 
+#### Como funciona a propagação das informações?
+
+A figura abaixo ilustra o fluxo de propagação das informações em nossa aplicação. O Hyperf gera as informações necessárias e as envia para o coletor do Opentelemetry para processamento.
+
+Após o recebimento das informações pelo Opentelemetry, ele as encaminha para os provedores configurados. Para obter uma visão geral do processo em andamento, consulte a imagem abaixo.
+
+![fluxo-de-execucao](https://github.com/ReinanHS/poc-hyperf-observability/assets/28494067/888826d5-2889-419d-9deb-3e1ca43d8eb5)
+
+#### ZipKin
+
+O Zipkin é uma ferramenta de rastreamento distribuído amplamente utilizada em sistemas distribuídos. Ele permite rastrear e visualizar o fluxo de solicitações entre os diferentes componentes de um sistema, fornecendo informações valiosas para a identificação e solução de problemas de desempenho.
+
+- Acesse a URL [http://127.0.0.1:9411](http://127.0.0.1:9411) para ter acesso de informações que estão disponíveis no ZipKin.
+
+Veja um exemplo das informações que estão disponíveis nesse serviço:
+
+<div align="center">
+   <img src="https://github.com/ReinanHS/poc-hyperf-observability/assets/28494067/ef90349b-b6a3-435e-b7e1-acf45a481004" alt="logo" width="80%">
+</div>
+
+#### Jaeguer
+
+O Jaeger é uma plataforma de rastreamento distribuído desenvolvida para ajudar a monitorar, solucionar problemas e otimizar o desempenho de sistemas distribuídos complexos.
+
+Ele foi projetado para trabalhar em conjunto com o conceito de "rastreamento de solicitações", permitindo acompanhar o fluxo de solicitações em uma arquitetura distribuída e fornecer informações detalhadas sobre o tempo gasto em cada componente envolvido.
+
+- Acesse a URL [http://localhost:16686](http://localhost:16686) para ter acesso de informações que estão disponíveis no Jaeguer.
+
+#### Promotheus
+
+O Prometheus é um sistema de monitoramento e alerta de código aberto, amplamente utilizado para coletar, armazenar e consultar métricas de sistemas distribuídos.
+
+Ele opera seguindo o modelo de coleta de métricas por meio de um agente chamado Prometheus Server. O Prometheus é projetado para ser altamente escalável e eficiente, capaz de coletar e armazenar métricas em tempo real de diversos componentes do sistema, como aplicativos, serviços e infraestrutura.
+
+- Acesse a URL [http://localhost:9090](http://localhost:9090) para ter acesso de informações que estão disponíveis no Promotheus.
+
+#### Grafana
+
+O Grafana é uma plataforma de visualização e monitoramento de código aberto amplamente utilizada para criar painéis interativos e gráficos visuais que exibem dados de métricas e logs.
+
+Com o Grafana, os usuários podem conectar uma variedade de fontes de dados, como Prometheus, InfluxDB, Elasticsearch e muitos outros, para coletar dados e criar visualizações personalizadas. Ele oferece uma ampla gama de opções de painéis e gráficos, permitindo que os usuários criem dashboards informativos e interativos para monitorar o desempenho e a saúde de sistemas, aplicativos e infraestrutura.
+
+- Acesse a URL [http://localhost:9090](http://localhost:9090) para ter acesso de informações que estão disponíveis no Grafana.
+- Utilize o usuário `admin` e a senha `secret` para acessar as informações. 
+
+Veja um exemplo das informações que estão disponíveis nesse serviço:
+
+<div align="center">
+   <img src="https://github.com/ReinanHS/poc-hyperf-observability/assets/28494067/27b0d550-151f-497d-b9e5-9f83f6849489" alt="logo" width="80%">
+</div>
+
 ### Software stack
 
 Esse projeto roda nos seguintes softwares:
@@ -83,6 +134,7 @@ Esse projeto roda nos seguintes softwares:
 - Git 2.33+
 - Hyperf
 - ZipKin
+- Jaeguer
 - Promotheus
 - Grafana
 - MySQL

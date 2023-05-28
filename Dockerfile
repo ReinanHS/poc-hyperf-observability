@@ -43,11 +43,13 @@ RUN set -ex \
 WORKDIR /opt/www
 
 # Composer Cache
-# COPY ./composer.* /opt/www/
+#COPY ./composer.* /opt/www/
 # RUN composer install --no-dev --no-scripts
 
-COPY ../.. /opt/www
-RUN composer install --no-dev -o && php bin/hyperf.php
+COPY . /opt/www
+
+RUN composer install --no-dev -o
+RUN php bin/hyperf.php
 
 EXPOSE 9501
 

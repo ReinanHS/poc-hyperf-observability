@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Psr\Http\Message\ResponseInterface;
+use function Hyperf\Support\env as env;
 
 class IndexController extends AbstractController
 {
@@ -22,6 +23,7 @@ class IndexController extends AbstractController
         $span->finish();
         $this->response->getBody()->write(
             json_encode([
+                'service' => env('APP_NAME'),
                 'message' => 'Sample message',
                 'data' => [
                     'method' => $method,

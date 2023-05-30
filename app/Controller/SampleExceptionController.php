@@ -16,6 +16,7 @@ class SampleExceptionController extends AbstractController
      */
     public function __invoke(): ResponseInterface
     {
+        $this->logger->error('ocorreu um erro na execução da aplicação');
         throw new HttpException(500, 'Application example error');
     }
 }

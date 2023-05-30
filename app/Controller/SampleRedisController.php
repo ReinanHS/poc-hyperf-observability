@@ -22,6 +22,8 @@ class SampleRedisController extends AbstractController
     {
         $data = $redis->get(self::REDIX_EXAMPLE_KEY);
         if (!$data) {
+            $this->logger->info('as informações não estão atualizadas no Redis');
+
             $data = hash('ripemd160', 'The quick brown fox jumped over the lazy dog.');
             $redis->setex('redix_example', 10, $data);
         }

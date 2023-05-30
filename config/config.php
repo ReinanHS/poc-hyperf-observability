@@ -24,8 +24,8 @@ return [
             LogLevel::ERROR,
             LogLevel::WARNING,
             LogLevel::NOTICE,
-            LogLevel::INFO,
-            LogLevel::DEBUG,
+            //LogLevel::INFO,
+            //LogLevel::DEBUG,
         ],
     ],
 ];

@@ -25,6 +25,8 @@ class SampleDatabaseController extends AbstractController
             ])
         );
 
+        $this->logger->info('consulta realizada com sucesso no banco de dados');
+
         return $this->response->withStatus(self::HTTP_CODE_SUCCESS)
             ->withHeader('Content-Type', 'application/json');
     }

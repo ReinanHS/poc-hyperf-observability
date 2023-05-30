@@ -22,6 +22,8 @@ class SampleExternalApiController extends AbstractController
         $response = $client->get('https://httpbin.org/get');
 
         if ($response->getStatusCode() == self::HTTP_CODE_SUCCESS) {
+            $this->logger->info('requisição realizada com sucesso');
+
             return $response->withStatus(self::HTTP_CODE_SUCCESS)
                 ->withHeader('Content-Type', 'application/json');
         }
@@ -32,6 +34,7 @@ class SampleExternalApiController extends AbstractController
             ])
         );
 
+        $this->logger->error('ocorreu um erro ao realizar a requisição');
         return $this->response->withStatus(500)
             ->withHeader('Content-Type', 'application/json');
     }

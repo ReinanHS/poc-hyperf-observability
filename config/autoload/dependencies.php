@@ -1,13 +1,17 @@
 <?php
 
 declare(strict_types=1);
-/**
- * This file is part of Hyperf.
- *
- * @link     https://www.hyperf.io
- * @document https://hyperf.wiki
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
- */
+
+use Hyperf\Logger\LoggerFactory;
+use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
+use function Hyperf\Support\env as env;
+
 return [
+    LoggerInterface::class => function (ContainerInterface $container) {
+        $app = env('APP_NAME', 'skeleton');
+
+        $factory = $container->get(LoggerFactory::class);
+        return $factory->get($app, 'default');
+    }
 ];

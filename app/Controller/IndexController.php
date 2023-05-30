@@ -17,6 +17,8 @@ class IndexController extends AbstractController
     {
         $span = $this->startSpan('sample span');
 
+        $this->logger->info('início da requisição para o IndexController');
+
         $user = $this->request->input('user', 'Hyperf');
         $method = $this->request->getMethod();
 

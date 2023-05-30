@@ -12,19 +12,24 @@ declare(strict_types=1);
 return [
     'default' => [
         'handler' => [
-            'class' => Monolog\Handler\StreamHandler::class,
+            'class' => Monolog\Handler\ErrorLogHandler::class,
             'constructor' => [
-                'stream' => BASE_PATH . '/runtime/logs/hyperf.log',
-                'level' => Monolog\Logger::DEBUG,
+                'messageType' => Monolog\Handler\ErrorLogHandler::OPERATING_SYSTEM,
+                'level' => env('APP_ENV') === 'prod'
+                    ? Monolog\Logger::WARNING
+                    : Monolog\Logger::DEBUG,
             ],
         ],
         'formatter' => [
-            'class' => Monolog\Formatter\LineFormatter::class,
-            'constructor' => [
-                'format' => null,
-                'dateFormat' => 'Y-m-d H:i:s',
-                'allowInlineLineBreaks' => true,
-            ],
+            'class' => env('APP_ENV') === 'prod'
+                ? Monolog\Formatter\JsonFormatter::class
+                : Monolog\Formatter\LineFormatter::class,
+        ],
+        'PsrLogMessageProcessor' => [
+            'class' => Monolog\Processor\PsrLogMessageProcessor::class,
+        ],
+        'processors' => [
+            new \App\Processor\TraceLogMessageProcessor(),
         ],
     ],
 ];

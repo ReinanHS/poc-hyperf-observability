@@ -28,6 +28,7 @@ class SampleInternalApiController extends AbstractController
         $response = $client->get($uri);
 
         if ($response->getStatusCode() == self::HTTP_CODE_SUCCESS) {
+            $this->logger->info('requisição realizada com sucesso para a API');
             return $response->withStatus(self::HTTP_CODE_SUCCESS)
                 ->withHeader('Content-Type', 'application/json');
         }
@@ -38,6 +39,7 @@ class SampleInternalApiController extends AbstractController
             ])
         );
 
+        $this->logger->error('ocorreu um erro ao realizar a requisição');
         return $this->response->withStatus(500)
             ->withHeader('Content-Type', 'application/json');
     }

@@ -13,5 +13,5 @@ return [
 
         $factory = $container->get(LoggerFactory::class);
         return $factory->get($app, 'default');
-    }
+    },
 ];

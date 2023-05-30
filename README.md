@@ -102,7 +102,7 @@ Veja um exemplo das informações que estão disponíveis nesse serviço:
    <img src="https://github.com/ReinanHS/poc-hyperf-observability/assets/28494067/ef90349b-b6a3-435e-b7e1-acf45a481004" alt="logo" width="80%">
 </div>
 
-#### Jaeguer
+#### Jaeger
 
 O Jaeger é uma plataforma de rastreamento distribuído desenvolvida para ajudar a monitorar, solucionar problemas e otimizar o desempenho de sistemas distribuídos complexos.
 
@@ -110,7 +110,7 @@ Ele foi projetado para trabalhar em conjunto com o conceito de "rastreamento de 
 
 - Acesse a URL [http://localhost:16686](http://localhost:16686) para ter acesso de informações que estão disponíveis no Jaeguer.
 
-#### Promotheus
+#### Prometheus
 
 O Prometheus é um sistema de monitoramento e alerta de código aberto, amplamente utilizado para coletar, armazenar e consultar métricas de sistemas distribuídos.
 
@@ -141,8 +141,8 @@ Esse projeto roda nos seguintes softwares:
 - Git 2.33+
 - Hyperf
 - ZipKin
-- Jaeguer
-- Promotheus
+- Jaeger
+- Prometheus
 - Grafana
 - MySQL
 - Redis

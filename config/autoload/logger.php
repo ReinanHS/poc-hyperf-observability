@@ -17,7 +17,7 @@ return [
                 'stream' => 'php://stdout',
                 'messageType' => Monolog\Handler\ErrorLogHandler::OPERATING_SYSTEM,
                 'level' => env('APP_ENV') === 'prod'
-                    ? Monolog\Logger::WARNING
+                    ? Monolog\Logger::INFO
                     : Monolog\Logger::DEBUG,
             ],
         ],
